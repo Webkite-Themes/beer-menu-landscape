@@ -492,11 +492,11 @@
         text-align: left;
         width: 100%;
         font-weight: 400; }
-      #webkite-results .webkite-block ul li .region + .state:before {
+      #webkite-results .webkite-block ul li .city + .state::before {
         content: ", "; }
-      #webkite-results .webkite-block ul li .region + .country:before {
+      #webkite-results .webkite-block ul li .city + .country::before {
         content: ", "; }
-      #webkite-results .webkite-block ul li .state + .country:before {
+      #webkite-results .webkite-block ul li .state + .country::before {
         content: ", "; }
   #webkite-results .webkite-block .image-wrapper {
     width: 100%; }
@@ -515,20 +515,18 @@
   width: 39%; }
 
 /************************************ LANDSCAPE RESULTS */
-#webkite-results .vintage, #webkite-results .varietal {
-  font-style: normal; }
-#webkite-results .wine-price {
+#webkite-results .beer-info {
   display: inline-block;
   margin-bottom: 0.625em;
   text-align: right;
   width: 100%; }
-  #webkite-results .wine-price .glass, #webkite-results .wine-price .bottle {
+  #webkite-results .beer-info .beer-price, #webkite-results .beer-info .abv {
     font: 400 1.2em/1 Georgia;
     color: rgba(0, 0, 0, 0.6);
     text-align: right; }
-#webkite-results .glass-per, #webkite-results .bottle-per {
-  font: 700 .65em/1 "Open Sans";
-  text-transform: uppercase; }
+  #webkite-results .beer-info .abv-per {
+    font: 700 .65em/1 "Open Sans";
+    text-transform: uppercase; }
 #webkite-results .webkite-result {
   text-align: justify;
   position: relative; }
