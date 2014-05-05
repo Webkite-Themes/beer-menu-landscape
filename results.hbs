@@ -9,26 +9,33 @@
 <section class="webkite-result">
 	<div class="webkite-block sixty">
 	  <h2>
-	  	{{#facet name="Brewery"}}
-				<span class="brewery">
-					{{#if filterable}}
-					{{#each values}}
-					<a href="#" class="webkite-add-filter" data-facet="{{../name}}" data-operator="is" data-value="{{this}}">{{this}}</a>
-					{{#unless @last}}<br>{{/unless}}
-					{{/each}}
-					{{else}}
-					{{#each values}}{{this}}{{#unless @last}}<br>{{/unless}}{{/each}}
-					{{/if}}
-				</span>
-			{{/facet}}
+			{{~#facet name="Brewery"}}
+				{{~#if filterable~}}
+					<a href="#" class="webkite-add-filter brewery"  data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
+				{{~else~}}
+					<span class="winery">{{displayValue}}</span>
+				{{~/if}}
+			{{~/facet}}
 	  	{{#facet name="Beer Name"}}<span class="beer-name">{{displayValue}}</span>{{/facet}}
 	  </h2>
 		<ul>
 			<li>
 				<span class="facet-values providence">
-				{{#facet name="City"}}<span class="city" href="#">{{displayValue}}</span>{{/facet}}<!--
-				-->{{#facet name="State"}}<a href="#" class="webkite-add-filter state" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>{{/facet}}<!--
-				-->{{#facet name="Country"}}<a href="#" class="webkite-add-filter country" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>{{/facet}}
+				{{#facet name="City"}}<span class="city" href="#">{{displayValue}}</span>{{/facet}}
+				{{~#facet name="State"}}
+            {{~#if filterable~}}
+              <a href="#" class="webkite-add-filter state" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
+            {{~else~}}
+              <span class="state">{{~displayValue}}</span>
+            {{~/if~}}          
+          {{~/facet}}
+					{{~#facet name="Country"}}
+	          {{~#if filterable~}}
+	            <a href="#" class="webkite-add-filter country" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
+	          {{~else~}}
+	            <span class="country">{{~displayValue}}</span>
+	          {{~/if~}}          
+	        {{~/facet~}}
 				</span>
 			</li>
 			<li>
@@ -89,8 +96,10 @@
 	</div><!--webkite-block-sixty-->
 	<div class="webkite-block forty">
 		<ul class="beer-info">
-			{{#facet name="Price ($)"}}<li class="beer-price">${{currency displayValue}}</li>{{/facet}}
+			{{#facet name="Price ($)"}}<li class="beer-price">{{currency displayValue}}</li>{{/facet}}
+			{{#facet name="Price"}}<li class="beer-price">{{currency displayValue}}</li>{{/facet}}
 			{{#facet name="ABV (%)"}}<li class="abv">{{ displayValue}}% <span class="abv-per">ABV</span></li>{{/facet}}
+			{{#facet name="ABV"}}<li class="abv">{{ displayValue}}<span class="abv-per"> ABV</span></li>{{/facet}}
 		</ul>	
 		{{#facet name="Image URL"}}<div class="image-wrapper"><img src="{{displayValue}}"/></div>{{/facet}}	
 	</div><!--webkite-block forty-->
