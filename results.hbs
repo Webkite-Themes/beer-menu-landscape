@@ -9,16 +9,32 @@
 <section class="webkite-result">
 	<div class="webkite-big-block sixty">
 		<div class="webkite-block forty">
-			<h3>
-				{{~#facet name="Brewery"}}
+			{{~#facet name="Brewery"}}
+			<h2>
+			{{~#if filterable~}}
+				<a href="#" class="webkite-add-filter brewery"  data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
+			{{~else~}}
+				<span class="winery">{{displayValue}}</span>
+			{{~/if}}
+		</h2>
+		{{~/facet}}
+		<p class="providence">
+			{{#facet name="City"}}<span class="city" href="#">{{displayValue}}</span>{{/facet}}
+			{{~#facet name="State"}}
 				{{~#if filterable~}}
-					<a href="#" class="webkite-add-filter brewery"  data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
+				<a href="#" class="webkite-add-filter state" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
 				{{~else~}}
-					<span class="winery">{{displayValue}}</span>
-				{{~/if}}
+				<span class="state">{{~displayValue}}</span>
+				{{~/if~}}          
 			{{~/facet}}
-			</h3>
-		  {{#facet name="Beer Name"}}<h2 class="beer-name">{{displayValue}}</h2>{{/facet}}
+			{{~#facet name="Country"}}
+				{{~#if filterable~}}
+				<a href="#" class="webkite-add-filter country" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
+				{{~else~}}
+				<span class="country">{{~displayValue}}</span>
+				{{~/if~}}          
+			{{~/facet~}}		
+		</p>
 			<ul>
 				<li>
 					{{#facet name="Type"}}
@@ -79,28 +95,12 @@
 		<div class="webkite-block sixty">
 			{{#facet name="Image URL"}}<div class="image-wrapper until-sm" style="background-image:url({{displayValue}});"></div>{{/facet}}	
 			<ul class="beer-info">
-				<h3 class="providence">
-					{{#facet name="City"}}<span class="city" href="#">{{displayValue}}</span>{{/facet}}
-					{{~#facet name="State"}}
-						{{~#if filterable~}}
-						<a href="#" class="webkite-add-filter state" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
-						{{~else~}}
-						<span class="state">{{~displayValue}}</span>
-						{{~/if~}}          
-					{{~/facet}}
-					{{~#facet name="Country"}}
-						{{~#if filterable~}}
-						<a href="#" class="webkite-add-filter country" data-facet="{{name}}" data-operator="is" data-value="{{displayValue}}">{{displayValue}}</a>
-						{{~else~}}
-						<span class="country">{{~displayValue}}</span>
-						{{~/if~}}          
-					{{~/facet~}}		
-				</h3>
+				{{#facet name="Beer Name"}}<h2 class="beer-name">{{displayValue}}</h2>{{/facet}}
+				{{#facet name="Price ($)"}}<span class="beer-price">${{currency value}}</span>{{/facet}}
 				<li>
 					<p>Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
 				</li>
 				<li>
-					{{#facet name="Price ($)"}}<span class="beer-price">${{currency value}}</span>{{/facet}}
 					{{#facet name="ABV (%)"}}<span class="abv">{{ displayValue}}% <span class="abv-per">abv</span></span>{{/facet}}
 				</li>
 			</ul>	
