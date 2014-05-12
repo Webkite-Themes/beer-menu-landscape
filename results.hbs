@@ -96,10 +96,8 @@
 	</div><!--webkite-block-sixty-->
 	<div class="webkite-block forty">
 		<ul class="beer-info">
-			{{#facet name="Price ($)"}}<li class="beer-price">{{currency displayValue}}</li>{{/facet}}
-			{{#facet name="Price"}}<li class="beer-price">{{currency displayValue}}</li>{{/facet}}
-			{{#facet name="ABV (%)"}}<li class="abv">{{ displayValue}}% <span class="abv-per">ABV</span></li>{{/facet}}
-			{{#facet name="ABV"}}<li class="abv">{{ displayValue}}<span class="abv-per"> ABV</span></li>{{/facet}}
+			{{#facet name="Price ($)"}}<li class="beer-price">${{currency value}}</li>{{/facet}}
+			{{#facet name="ABV (%)"}}<li class="abv">{{value}}%<span class="abv-per"> ABV</span></li>{{/facet}}
 		</ul>	
 		{{#facet name="Image URL"}}<div class="image-wrapper"><img src="{{displayValue}}"/></div>{{/facet}}	
 	</div><!--webkite-block forty-->
