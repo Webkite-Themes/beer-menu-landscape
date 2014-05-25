@@ -109,6 +109,11 @@ $colorVariant:dark;
 		  color: $lightOpacity;
 		  text-align: right;
 	  	}
+		.beer-price {
+  		overflow:hidden;
+  		white-space:nowrap;
+  		text-overflow:ellipsis;
+      }
 	  .abv-per{
 		  font: 700 .65em/1 "Open Sans";
 		  text-transform: uppercase;

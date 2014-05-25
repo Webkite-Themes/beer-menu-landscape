@@ -585,6 +585,10 @@
     font: 400 1.2em/1 Georgia;
     color: rgba(0, 0, 0, 0.6);
     text-align: right; }
+  #webkite-results .beer-info .beer-price {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
   #webkite-results .beer-info .abv-per {
     font: 700 .65em/1 "Open Sans";
     text-transform: uppercase; }
